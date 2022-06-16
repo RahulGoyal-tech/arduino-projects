@@ -8,6 +8,8 @@ void barLoaderOnLCD(int timeInMilliSeconds){
     int percent = 0;
     uint8_t col = 0;
     uint8_t row = 0;
+
+    //Making bytes for custom characters
     byte one[8]{
         0b10000,
         0b10000,
@@ -58,34 +60,13 @@ void barLoaderOnLCD(int timeInMilliSeconds){
         0b11111,
         0b11111
     };
-    byte start_mask[8]{
-        0b00000,
-        0b10000,
-        0b10000,
-        0b10000,
-        0b10000,
-        0b10000,
-        0b10000,
-        0b00000
-    };
-    byte end_mask[8]{
-        0b00000,
-        0b00001,
-        0b00001,
-        0b00001,
-        0b00001,
-        0b00001,
-        0b00001,
-        0b00000
-    };
 
+    //Assigning custom character the byte number
     lcd.createChar(1,one);
     lcd.createChar(2,two);
     lcd.createChar(3,three);
     lcd.createChar(4,four);
     lcd.createChar(5,five);
-    lcd.createChar(6,start_mask);
-    lcd.createChar(7,end_mask);
     lcd.begin(16,2);
     lcd.setCursor(col,row);
     row++;
@@ -94,6 +75,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
     lcd.print(percent);
     lcd.print('%');
     lcd.setCursor(col,row);
+
     for(int i=0; i<10; i++){
         lcd.write(byte(1));
         delay(10);
@@ -113,6 +95,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
             lcd.setCursor(col,row);
         }
         delay(delayTime);
+
         lcd.write(byte(2));
         delay(10);
         percent+=2;
@@ -131,6 +114,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
             lcd.setCursor(col,row);
         }
         delay(delayTime);
+
         lcd.write(byte(3));
         delay(10);
         percent+=2;
@@ -147,6 +131,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
             lcd.setCursor(col,row);
         }
         delay(delayTime);
+
         lcd.write(byte(4));
         delay(10);
         percent+=2;
@@ -163,6 +148,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
             lcd.setCursor(col,row);
         }
         delay(delayTime);
+
         lcd.write(byte(5));
         delay(10);
         percent+=2;
@@ -185,6 +171,7 @@ void barLoaderOnLCD(int timeInMilliSeconds){
             lcd.setCursor(col,row);
         }
         delay(delayTime);
+        
         col++;
         lcd.setCursor(col,row);
     }
