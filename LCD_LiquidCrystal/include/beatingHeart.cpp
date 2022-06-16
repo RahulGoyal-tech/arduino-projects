@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <config.cpp>
 
+//Creating custom characters
 byte heart[8] = {
   0b00000,
   0b01010,
@@ -24,12 +25,14 @@ byte smallHeart[8] = {
 };
 
 void beatHeartOnLCD(int numTimes){
-    lcd.begin(16,2); 
+    // Assigning custom characters to byte numbers 
     lcd.createChar(0,heart);
     lcd.createChar(1,smallHeart);
+    lcd.begin(16,2);
     lcd.setCursor(0,0);
     lcd.print("Beating Heart");
     lcd.setCursor(0,1);
+    
     for(int i=0; i<numTimes; i++){
         lcd.write(byte(1));
         lcd.write(byte(1));

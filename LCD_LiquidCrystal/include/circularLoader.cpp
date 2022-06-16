@@ -2,6 +2,7 @@
 #include <config.cpp>
 
 void smallLoaderOnLCD(unsigned int timeInMilliSeconds) {
+    //Creating Custom Characters
     byte circOne[8] = {
     0b00000,
     0b00000,
@@ -46,10 +47,12 @@ void smallLoaderOnLCD(unsigned int timeInMilliSeconds) {
     0b00000,
     };
 
+    //Assigning custom characters to byte numbers
     lcd.createChar(1,circOne);
     lcd.createChar(2,circTwo);
     lcd.createChar(3,circThree);
     lcd.createChar(4,circFour);
+
     lcd.begin(16,2);
     lcd.clear();
     lcd.print("Small Loader:");
@@ -63,16 +66,19 @@ void smallLoaderOnLCD(unsigned int timeInMilliSeconds) {
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(2));
         delay(200);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(3));
         delay(200);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(4));
         delay(200);
         lcd.rightToLeft();
@@ -83,7 +89,7 @@ void smallLoaderOnLCD(unsigned int timeInMilliSeconds) {
 }
 
 void largeLoaderOnLCD(unsigned int timeInMilliSeconds) {
-
+    //Creating Custom characters
     byte circOne[8] = {
     0b00000,
     0b10001,
@@ -150,12 +156,14 @@ void largeLoaderOnLCD(unsigned int timeInMilliSeconds) {
     0b01110,
     };
 
+    //Assigning Custom characters to byte numbers
     lcd.createChar(1,circOne);
     lcd.createChar(2,circTwo);
     lcd.createChar(3,circThree);
     lcd.createChar(4,circFour);
     lcd.createChar(5,circFive);
     lcd.createChar(6,circSix);
+
     lcd.begin(16,2);
     lcd.clear();
     lcd.print("Large Loader:");
@@ -169,26 +177,31 @@ void largeLoaderOnLCD(unsigned int timeInMilliSeconds) {
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(2));
         delay(150);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(3));
         delay(150);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(4));
         delay(150);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+
         lcd.write(byte(5));
         delay(150);
         lcd.rightToLeft();
         lcd.print(" ");
         lcd.leftToRight();
+        
         lcd.write(byte(6));
         delay(150);
         lcd.rightToLeft();
